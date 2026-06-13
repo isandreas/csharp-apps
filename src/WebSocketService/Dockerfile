@@ -10,7 +10,6 @@ RUN dotnet restore src/WebSocketService/WebSocketService.csproj
 COPY src/WebSocketService/ src/WebSocketService/
 RUN dotnet publish src/WebSocketService/WebSocketService.csproj \
       --configuration Release \
-      --no-restore \
       --output /app/publish
 
 # ── Stage 2: runtime ──────────────────────────────────────────────────────────

@@ -13,7 +13,6 @@ RUN dotnet restore src/Api/Api.csproj
 COPY src/Api/ src/Api/
 RUN dotnet publish src/Api/Api.csproj \
       --configuration Release \
-      --no-restore \
       --output /app/publish
 
 # ── Stage 2: runtime ──────────────────────────────────────────────────────────
