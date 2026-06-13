@@ -79,3 +79,6 @@ infra/.env
 
 ## Published output
 publish/
+
+## copilot
+.github/agents
