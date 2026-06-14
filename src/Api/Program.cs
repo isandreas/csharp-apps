@@ -151,9 +151,9 @@ try
     // API endpoints
     app.MapItemsEndpoints();
 
-    // Auto-migrate on startup (dev/staging convenience -- use explicit migration in prod)
+    // Auto-migrate on startup in all environments.
+    // MigrateAsync is idempotent — already-applied migrations are skipped.
     // IsRelational() guard ensures InMemory provider used in tests is skipped.
-    if (!app.Environment.IsProduction())
     {
         using var scope = app.Services.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
