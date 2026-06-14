@@ -137,16 +137,13 @@ try
         }
     });
 
-    // Swagger UI (dev only)
-    if (app.Environment.IsDevelopment())
+    // Swagger UI (always enabled for demo; restrict in production if needed)
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
     {
-        app.UseSwagger();
-        app.UseSwaggerUI(c =>
-        {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "CsharpApps API v1");
-            c.RoutePrefix = "swagger";
-        });
-    }
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "CsharpApps API v1");
+        c.RoutePrefix = "swagger";
+    });
 
     // API endpoints
     app.MapItemsEndpoints();
